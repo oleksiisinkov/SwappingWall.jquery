@@ -72,4 +72,4 @@ $('.list').SwappingWall({
   
 # Feedback/bugs
 This is my first project on github, so, please, don't judge strictly :) <br />
-And you found a bug, please, post it under "issues".
+And if you found a bug, please, post it under "issues".
