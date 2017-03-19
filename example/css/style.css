@@ -1,0 +1,28 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	background-color: black;
+}
+
+.list{
+	width: 100%;
+	padding: 0;
+	margin: 0; 
+}
+.list img{
+	float: left;
+	width: 100%;
+}
+
+
+@media screen and (max-width:991px) {
+  .list div{
+  	width: 33.333333%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .list div{
+  	width: 50%;
+  }
+}
