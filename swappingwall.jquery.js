@@ -11,10 +11,9 @@
 	    			arr = [1,2], heightFirstElement,
 	    			edgeNumbers = [];
 	    			
-	    		heightFirstElement = self.children().first().height();
+	    		
 	    		self.addClass("swappingwall");
 	    		self.children().css('position','relative');
-				self.children().css('height', heightFirstElement);
 				self.children().css('overflow','hidden');
 
 	    		if(options.responsive === undefined || options.responsive === null){
@@ -22,12 +21,14 @@
 	    		} else {
 	    			settingsByWidth();
 	    		}
+
+				self.children().css('height', 'auto');
+
 	    		numberOfItems = self.children().length - 1;
 	    		function runTimer(){
 	    			interval = setInterval(runAnimation, time);
 	    		}
 	    		function runAnimation(){
-	    			
 	    			   index = getRandomInt(null, numberOfItems);
 	    			   setTimeout(function(){
 	    			   	edgeNumbers = [];
@@ -35,8 +36,8 @@
 	    			   		edgeNumbers.push(i)
 	    			   	}
 	    			   	choosenItemFirst = self.children().eq(index);
-	    			   	choosenItemFirstHeight = Math.round(choosenItemFirst.height() * 10) / 10;
-	    			   	choosenItemFirstWidth = Math.round(choosenItemFirst.width() * 10) / 10;
+	    			   	choosenItemFirstHeight = choosenItemFirst.height();
+	    			   	choosenItemFirstWidth = choosenItemFirst.width();
 	    			   	target = arr[Math.floor(Math.random() * arr.length)];
 	    			   	if(target == 1){ 
 	    			   		if(ifEdgePointHorizontal(index) > -1){
@@ -114,7 +115,7 @@
 	    			time = 2500;
 	    			duration = 500;
 	    		}
-	    		console.log(itemsInRow, time, duration);
+	    		/*console.log(itemsInRow, time, duration);*/
 	    		if($.isNumeric(itemsInRow) && $.isNumeric(time) && $.isNumeric(duration)){
 	    			if(d !== true){
 	    				runTimer();
@@ -126,7 +127,7 @@
 	    	function BottomToTop(){
 	    			choosenItemSecond = self.children().eq(index - itemsInRow);
 	    			if(choosenItemSecond.length !== 0){
-	    				choosenItemSecondHeight = Math.round(choosenItemSecond.height() * 10) / 10;
+	    				choosenItemSecondHeight = choosenItemSecond.height();
 	    				firstPosition = choosenItemFirst.css("top");
 	    				secondPosition = choosenItemSecond.css("top");
 	    				moveDistance1 = parseInt(firstPosition) - choosenItemFirstHeight;
@@ -147,7 +148,7 @@
 	    	function TopToBottom(){
 	    			choosenItemSecond = self.children().eq(index + itemsInRow);
 	    			if(choosenItemSecond.length !== 0){
-	    				choosenItemSecondHeight = Math.round(choosenItemSecond.height() * 10) / 10;
+	    				choosenItemSecondHeight = choosenItemSecond.height();
 	    				firstPosition = choosenItemFirst.css("top");
 	    				secondPosition = choosenItemSecond.css("top");
 	    				moveDistance1 = parseInt(firstPosition) + choosenItemFirstHeight;
@@ -168,7 +169,7 @@
 	    	function LeftToRight(){
 	    			choosenItemSecond = self.children().eq(index + 1);
 	    			if(choosenItemSecond.length !== 0){
-	    				choosenItemSecondWidth = Math.round(choosenItemSecond.width() * 10) / 10;
+	    				choosenItemSecondWidth = choosenItemSecond.width();
 	    				firstPosition = choosenItemFirst.css("left");
 	    				secondPosition = choosenItemSecond.css("left");
 	    				moveDistance1 = parseInt(firstPosition) + choosenItemFirstWidth;
@@ -189,7 +190,7 @@
 	    	function RightToLeft(){
 	    			choosenItemSecond = self.children().eq(index - 1);
 	    			if(choosenItemSecond.length !== 0){
-	    				choosenItemSecondWidth = Math.round(choosenItemSecond.width() * 10) / 10;
+	    				choosenItemSecondWidth = choosenItemSecond.width();
 	    				firstPosition = choosenItemFirst.css("left");
 	    				secondPosition = choosenItemSecond.css("left");
 	    				moveDistance1 = parseInt(firstPosition) - choosenItemFirstWidth;
@@ -238,6 +239,7 @@
 	    	    callback(closest);
 	    	    return false;
 	    	}
+	    	
 	    	$(window).bind('resize', function(e){
 	    	    window.resizeEvt;
 	    	    $(window).resize(function(){
