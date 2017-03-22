@@ -32,7 +32,6 @@ Making them floating
 }
 .list img{
 	float: left;
-	width: 100%;
 }
 ```
 Example of settings
