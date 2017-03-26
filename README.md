@@ -2,7 +2,7 @@
 This is a very simple jQuery plugin, which create simple wall-gallery, and animation with randomly swapping items. This plugin is responsive and easy to use. 
 You can use it for free.
 # Requirements
-Requires jQuery v3.2.0
+Requires jQuery minimum v2.2.1
 # Example
 
 Creating div with some pictures
@@ -32,7 +32,6 @@ Making them floating
 }
 .list img{
 	float: left;
-	width: 100%;
 }
 ```
 Example of settings
