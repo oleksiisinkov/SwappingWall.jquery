@@ -10,6 +10,7 @@
     			self.children().css('position','relative');
     			self.children().css('overflow','hidden');
     			self.children().css('height', 'auto');
+    			self.children().css('float', 'left');
     			var body = {
     				itemsInRow: 0,
     				time: 2500,
